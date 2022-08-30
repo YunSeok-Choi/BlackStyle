@@ -1,8 +1,12 @@
 disabled_rules:
-- line_length
-- leading_whitespace
-- trailing_whitespace
+  - line_length
+  - leading_whitespace
+  - trailing_whitespace
+  - control_statement
+  - todo
+  - vertical_whitespace
 
 included:
+  
 excluded:
 - Pods
