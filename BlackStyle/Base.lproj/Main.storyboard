@@ -104,14 +104,37 @@
                     <view key="view" contentMode="scaleToFill" id="QtG-vl-fHT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="FAN-3F-6zB">
+                                <rect key="frame" x="42" y="283" width="330" height="330"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FAN-3F-6zB" secondAttribute="height" multiplier="1:1" id="6xz-h0-xjZ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Mei-F2-2KY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="secondaryLabelColor"/>
+                        <constraints>
+                            <constraint firstItem="Mei-F2-2KY" firstAttribute="trailing" secondItem="FAN-3F-6zB" secondAttribute="trailing" constant="42" id="6xc-Go-fNp"/>
+                            <constraint firstItem="FAN-3F-6zB" firstAttribute="centerX" secondItem="QtG-vl-fHT" secondAttribute="centerX" id="bkb-8X-cXM"/>
+                            <constraint firstItem="FAN-3F-6zB" firstAttribute="leading" secondItem="Mei-F2-2KY" secondAttribute="leading" constant="42" id="k2N-sO-guE"/>
+                            <constraint firstItem="FAN-3F-6zB" firstAttribute="centerY" secondItem="QtG-vl-fHT" secondAttribute="centerY" id="uqD-hz-F1v"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="itM-ib-b9f"/>
+                    <navigationItem key="navigationItem" id="itM-ib-b9f">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="zPq-s3-u04">
+                            <connections>
+                                <action selector="albumTapped:" destination="com-uG-wwe" id="WFf-L9-5kr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="FAN-3F-6zB" id="p99-Bj-Na0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uNc-rg-ZQ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3041" y="516"/>
+            <point key="canvasLocation" x="3040.579710144928" y="515.625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mfg-a5-cFC">
@@ -133,6 +156,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="1920" height="1920"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
