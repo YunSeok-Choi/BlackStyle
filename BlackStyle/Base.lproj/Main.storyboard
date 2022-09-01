@@ -146,11 +146,10 @@
                                     <constraint firstAttribute="width" secondItem="FAN-3F-6zB" secondAttribute="height" multiplier="1:1" id="6xz-h0-xjZ"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQI-7A-7Ny">
-                                <rect key="frame" x="424" y="1222" width="178" height="88"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xQI-7A-7Ny">
+                                <rect key="frame" x="401" y="1199.5" width="222" height="86.5"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button">
                                     <attributedString key="attributedTitle">
                                         <fragment content="저장하기">
                                             <attributes>
@@ -158,8 +157,8 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="saveImage:" destination="com-uG-wwe" eventType="touchUpInside" id="4T3-dr-iUg"/>
                                 </connections>
@@ -168,8 +167,10 @@
                         <viewLayoutGuide key="safeArea" id="Mei-F2-2KY"/>
                         <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                         <constraints>
+                            <constraint firstItem="xQI-7A-7Ny" firstAttribute="centerX" secondItem="QtG-vl-fHT" secondAttribute="centerX" id="19j-4z-ULj"/>
                             <constraint firstItem="Mei-F2-2KY" firstAttribute="trailing" secondItem="FAN-3F-6zB" secondAttribute="trailing" constant="42" id="6xc-Go-fNp"/>
                             <constraint firstItem="FAN-3F-6zB" firstAttribute="centerX" secondItem="QtG-vl-fHT" secondAttribute="centerX" id="bkb-8X-cXM"/>
+                            <constraint firstItem="Mei-F2-2KY" firstAttribute="bottom" secondItem="xQI-7A-7Ny" secondAttribute="bottom" constant="60" id="gZ5-M4-HlY"/>
                             <constraint firstItem="FAN-3F-6zB" firstAttribute="leading" secondItem="Mei-F2-2KY" secondAttribute="leading" constant="42" id="k2N-sO-guE"/>
                             <constraint firstItem="FAN-3F-6zB" firstAttribute="centerY" secondItem="QtG-vl-fHT" secondAttribute="centerY" id="uqD-hz-F1v"/>
                         </constraints>
