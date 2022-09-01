@@ -76,4 +76,20 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func saveImage(_ sender: UIButton) {
+        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, UIScreen.main.scale)
+        
+        imageView.drawHierarchy(in: imageView.bounds, afterScreenUpdates: true)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.creationRequestForAsset(from: image!)
+        }) { success, _ in
+            // error
+        }
+        
+    }
+    
+    
 }
