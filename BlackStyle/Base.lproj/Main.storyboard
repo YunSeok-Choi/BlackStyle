@@ -58,6 +58,9 @@
                                             </attributedString>
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="KwX-mK-fXv" kind="show" id="nUK-q8-kYi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="92u-uo-VA6">
                                         <rect key="frame" x="180" y="0.0" width="109" height="53.5"/>
@@ -97,6 +100,38 @@
             </objects>
             <point key="canvasLocation" x="2036" y="94"/>
         </scene>
+        <!--Draw View Controller-->
+        <scene sceneID="hCV-BK-ScW">
+            <objects>
+                <viewController id="KwX-mK-fXv" customClass="DrawViewController" customModule="BlackStyle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vIC-4c-zmk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cle-f5-G50" customClass="PKCanvasView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AjM-Ei-LCD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1TC-tr-JbZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="w6J-di-iHH">
+                            <connections>
+                                <action selector="saveDrawImage:" destination="KwX-mK-fXv" id="d4l-LE-dbF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="canvasView" destination="cle-f5-G50" id="ZXz-EN-M86"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ug-6W-FM1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3028.985507246377" y="-137.27678571428569"/>
+        </scene>
         <!--Trans View Controller-->
         <scene sceneID="fic-NC-r1g">
             <objects>
@@ -122,7 +157,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="itM-ib-b9f">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="zPq-s3-u04">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="zPq-s3-u04">
                             <connections>
                                 <action selector="albumTapped:" destination="com-uG-wwe" id="WFf-L9-5kr"/>
                             </connections>
