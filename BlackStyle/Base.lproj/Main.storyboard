@@ -62,7 +62,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8X3-yj-A0J"/>
-                        <color key="backgroundColor" red="0.74901962280000001" green="0.65098041299999998" blue="0.56078433989999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yAf-8d-tjS" firstAttribute="centerX" secondItem="7TL-Qc-TUx" secondAttribute="centerX" id="7as-Z6-VJl"/>
@@ -115,7 +115,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="FAN-3F-6zB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackpaper" translatesAutoresizingMaskIntoConstraints="NO" id="FAN-3F-6zB">
                                 <rect key="frame" x="42" y="124" width="940" height="940"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FAN-3F-6zB" secondAttribute="height" multiplier="1:1" id="6xz-h0-xjZ"/>
@@ -155,7 +155,7 @@
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mei-F2-2KY"/>
-                        <color key="backgroundColor" red="0.74901962280000001" green="0.65098041299999998" blue="0.56078433989999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.1058823529" green="0.1058823529" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="xQI-7A-7Ny" firstAttribute="centerX" secondItem="QtG-vl-fHT" secondAttribute="centerX" id="19j-4z-ULj"/>
                             <constraint firstItem="Mei-F2-2KY" firstAttribute="trailing" secondItem="FAN-3F-6zB" secondAttribute="trailing" constant="42" id="6xc-Go-fNp"/>
@@ -204,7 +204,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="1920" height="1920"/>
+        <image name="blackpaper" width="1920" height="1280"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
