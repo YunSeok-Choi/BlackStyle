@@ -43,7 +43,7 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     func detect(image: CIImage) {
         
-        guard let model = try? VNCoreMLModel(for: Pencil(configuration: MLModelConfiguration()).model) else {
+        guard let model = try? VNCoreMLModel(for: Green(configuration: MLModelConfiguration()).model) else {
             fatalError("Loading CoreML Model Failed")
         }
 
@@ -85,9 +85,7 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         PHPhotoLibrary.shared().performChanges({
             PHAssetChangeRequest.creationRequestForAsset(from: image!)
-        }) { success, _ in
-            // error
-        }
+        })
         
     }
     

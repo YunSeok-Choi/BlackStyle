@@ -17,25 +17,9 @@ class DrawViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerOb
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        canvasView.delegate = self
-//        canvasView.drawing = drawing
-//        canvasView.drawingPolicy = .anyInput
-
         
-        // Do any additional setup after loading the view.
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//
-//        let toolPicker = PKToolPicker()
-//        toolPicker.setVisible(true, forFirstResponder: canvasView)
-//        toolPicker.addObserver(canvasView)
-//        toolPicker.addObserver(self)
-//        canvasView.becomeFirstResponder()
-//
-//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -53,16 +37,14 @@ class DrawViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerOb
         
     }
     
-    // 샘플
     func toolPickerFramesObscuredDidChange(_ toolPicker: PKToolPicker) {
         updateLayout(for: toolPicker)
     }
     
-    // 샘플
     func toolPickerVisibilityDidChange(_ toolPicker: PKToolPicker) {
         updateLayout(for: toolPicker)
     }
-    // 샘플
+    
     func updateLayout(for toolPicker: PKToolPicker) {
         let obscuredFrame = toolPicker.frameObscured(in: view)
         
@@ -85,9 +67,7 @@ class DrawViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerOb
         if image != nil {
             PHPhotoLibrary.shared().performChanges({
                 PHAssetChangeRequest.creationRequestForAsset(from: image!)
-            }) { success, _ in
-                // error
-            }
+            })
         }
     }
     
