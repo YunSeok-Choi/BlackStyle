@@ -13,25 +13,67 @@ class DrawViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerOb
 
     @IBOutlet weak var canvasView: PKCanvasView!
     var drawing = PKDrawing()
+    var toolPicker: PKToolPicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        canvasView.delegate = self
-        canvasView.drawing = drawing
-        canvasView.drawingPolicy = .anyInput
 
+//        canvasView.delegate = self
+//        canvasView.drawing = drawing
+//        canvasView.drawingPolicy = .anyInput
+
+        
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//
+//        let toolPicker = PKToolPicker()
+//        toolPicker.setVisible(true, forFirstResponder: canvasView)
+//        toolPicker.addObserver(canvasView)
+//        toolPicker.addObserver(self)
+//        canvasView.becomeFirstResponder()
+//
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let toolPicker = PKToolPicker()
+        canvasView.delegate = self
+        canvasView.drawing = drawing
+        
+        toolPicker = PKToolPicker()
+        
         toolPicker.setVisible(true, forFirstResponder: canvasView)
         toolPicker.addObserver(canvasView)
+        toolPicker.addObserver(self)
+        updateLayout(for: toolPicker)
         canvasView.becomeFirstResponder()
         
+    }
+    
+    // 샘플
+    func toolPickerFramesObscuredDidChange(_ toolPicker: PKToolPicker) {
+        updateLayout(for: toolPicker)
+    }
+    
+    // 샘플
+    func toolPickerVisibilityDidChange(_ toolPicker: PKToolPicker) {
+        updateLayout(for: toolPicker)
+    }
+    // 샘플
+    func updateLayout(for toolPicker: PKToolPicker) {
+        let obscuredFrame = toolPicker.frameObscured(in: view)
+        
+        if obscuredFrame.isNull {
+            canvasView.contentInset = .zero
+            navigationItem.leftBarButtonItems = []
+        } else {
+            canvasView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: view.bounds.maxY - obscuredFrame.minY, right: 0)
+        }
+        
+        canvasView.scrollIndicatorInsets = canvasView.contentInset
     }
     
     @IBAction func saveDrawImage(_ sender: Any) {
@@ -43,8 +85,8 @@ class DrawViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerOb
         if image != nil {
             PHPhotoLibrary.shared().performChanges({
                 PHAssetChangeRequest.creationRequestForAsset(from: image!)
-            }) { success, error in
-                //error
+            }) { success, _ in
+                // error
             }
         }
     }

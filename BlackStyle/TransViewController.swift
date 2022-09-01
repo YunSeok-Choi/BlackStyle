@@ -59,7 +59,6 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 
                 DispatchQueue.main.async {
                     self.imageView.image = UIImage(ciImage: ciImage)
-//                    self.imageView.image
                 }
             }
             
