@@ -16,6 +16,7 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var imageView: UIImageView!
     
     let imagePicker = UIImagePickerController()
+    var userCIImage: CIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,28 +27,37 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         if let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            
             self.imageView.image = userPickedImage
-            
-            guard let ciImage = CIImage(image: userPickedImage) else {
-                fatalError("Failed to CIImage")
-            }
-            
-            detect(image: ciImage)
+            userCIImage = CIImage(image: userPickedImage)!
         }
-        
         imagePicker.dismiss(animated: true)
-        
     }
     
-    
-    func detect(image: CIImage) {
+    func detect(image: CIImage, name: String) {
+        var model: VNCoreMLModel?
         
-        guard let model = try? VNCoreMLModel(for: Green(configuration: MLModelConfiguration()).model) else {
-            fatalError("Loading CoreML Model Failed")
+        switch name {
+        case "Stone":
+            model = try? VNCoreMLModel(for: Stone(configuration: MLModelConfiguration()).model)
+        case "Dezoomify1teration310":
+            model = try? VNCoreMLModel(for: Dezoomify1teration310(configuration: MLModelConfiguration()).model)
+        case "Pencil":
+            model = try? VNCoreMLModel(for: Pencil(configuration: MLModelConfiguration()).model)
+        case "Spring":
+            model = try? VNCoreMLModel(for: Spring(configuration: MLModelConfiguration()).model)
+        case "Dot":
+            model = try? VNCoreMLModel(for: Dot(configuration: MLModelConfiguration()).model)
+        case "Green":
+            model = try? VNCoreMLModel(for: Green(configuration: MLModelConfiguration()).model)
+        default:
+            break
         }
-
-        let request = VNCoreMLRequest(model: model) { request, _ in
+        
+//        guard let model = try? VNCoreMLModel(for: Stone(configuration: MLModelConfiguration()).model) else {
+//            fatalError("Loading CoreML Model Failed")
+//        }
+        
+        let request = VNCoreMLRequest(model: model!) { request, _ in
             
             DispatchQueue.global(qos: .userInteractive).async {
                 guard let results = request.results?.first as? VNPixelBufferObservation else {
@@ -74,6 +84,26 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func albumTapped(_ sender: UIBarButtonItem) {
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func styleSegmented(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            detect(image: userCIImage, name: "Stone")
+        case 1:
+            detect(image: userCIImage, name: "Dezoomify1teration310")
+        case 2:
+            detect(image: userCIImage, name: "Pencil")
+        case 3:
+            detect(image: userCIImage, name: "Spring")
+        case 4:
+            detect(image: userCIImage, name: "Dot")
+        case 5:
+            detect(image: userCIImage, name: "Green")
+        default:
+            break
+        }
     }
     
     @IBAction func saveImage(_ sender: UIButton) {

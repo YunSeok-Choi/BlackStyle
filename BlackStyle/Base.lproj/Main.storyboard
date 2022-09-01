@@ -62,7 +62,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8X3-yj-A0J"/>
-                        <color key="backgroundColor" systemColor="secondaryLabelColor"/>
+                        <color key="backgroundColor" red="0.74901962280000001" green="0.65098041299999998" blue="0.56078433989999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yAf-8d-tjS" firstAttribute="centerX" secondItem="7TL-Qc-TUx" secondAttribute="centerX" id="7as-Z6-VJl"/>
@@ -149,10 +149,13 @@
                                     <segment title="5"/>
                                     <segment title="6"/>
                                 </segments>
+                                <connections>
+                                    <action selector="styleSegmented:" destination="com-uG-wwe" eventType="valueChanged" id="PtL-ZS-vJk"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mei-F2-2KY"/>
-                        <color key="backgroundColor" systemColor="secondaryLabelColor"/>
+                        <color key="backgroundColor" red="0.74901962280000001" green="0.65098041299999998" blue="0.56078433989999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="xQI-7A-7Ny" firstAttribute="centerX" secondItem="QtG-vl-fHT" secondAttribute="centerX" id="19j-4z-ULj"/>
                             <constraint firstItem="Mei-F2-2KY" firstAttribute="trailing" secondItem="FAN-3F-6zB" secondAttribute="trailing" constant="42" id="6xc-Go-fNp"/>
@@ -202,9 +205,6 @@
     </scenes>
     <resources>
         <image name="background" width="1920" height="1920"/>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
