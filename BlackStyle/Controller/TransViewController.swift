@@ -29,6 +29,7 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             self.imageView.image = userPickedImage
             userCIImage = CIImage(image: userPickedImage)!
+//            userCIImage.orientationTransform(for: .down)
         }
         imagePicker.dismiss(animated: true)
     }
