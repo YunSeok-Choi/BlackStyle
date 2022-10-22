@@ -35,6 +35,11 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     func detect(image: CIImage, name: String) {
+        
+        guard image != nil else {
+            return
+        }
+        
         var model: VNCoreMLModel?
         
         switch name {
@@ -89,6 +94,9 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     
     @IBAction func styleSegmented(_ sender: UISegmentedControl) {
+        
+        guard userCIImage != nil else { return }
+        
         switch sender.selectedSegmentIndex {
         case 0:
             detect(image: userCIImage, name: "Stone")
@@ -108,15 +116,6 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func saveImage(_ sender: UIButton) {
-        //        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, UIScreen.main.scale)
-        //
-        //        imageView.drawHierarchy(in: imageView.bounds, afterScreenUpdates: true)
-        //
-        //        let image = UIGraphicsGetImageFromCurrentImageContext()
-        //
-        //        PHPhotoLibrary.shared().performChanges({
-        //            PHAssetChangeRequest.creationRequestForAsset(from: image!)
-        //        })
         self.saveImage(view: imageView)
     }
     
