@@ -29,7 +29,7 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             self.imageView.image = userPickedImage
             userCIImage = CIImage(image: userPickedImage)!
-//            userCIImage.orientationTransform(for: .down)
+            //            userCIImage.orientationTransform(for: .down)
         }
         imagePicker.dismiss(animated: true)
     }
@@ -54,9 +54,9 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
             break
         }
         
-//        guard let model = try? VNCoreMLModel(for: Stone(configuration: MLModelConfiguration()).model) else {
-//            fatalError("Loading CoreML Model Failed")
-//        }
+        //        guard let model = try? VNCoreMLModel(for: Stone(configuration: MLModelConfiguration()).model) else {
+        //            fatalError("Loading CoreML Model Failed")
+        //        }
         
         let request = VNCoreMLRequest(model: model!) { request, _ in
             
@@ -108,17 +108,16 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func saveImage(_ sender: UIButton) {
-        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, UIScreen.main.scale)
-        
-        imageView.drawHierarchy(in: imageView.bounds, afterScreenUpdates: true)
-        
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        
-        PHPhotoLibrary.shared().performChanges({
-            PHAssetChangeRequest.creationRequestForAsset(from: image!)
-        })
-        
+        //        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, UIScreen.main.scale)
+        //
+        //        imageView.drawHierarchy(in: imageView.bounds, afterScreenUpdates: true)
+        //
+        //        let image = UIGraphicsGetImageFromCurrentImageContext()
+        //
+        //        PHPhotoLibrary.shared().performChanges({
+        //            PHAssetChangeRequest.creationRequestForAsset(from: image!)
+        //        })
+        self.saveImage(view: imageView)
     }
-    
     
 }

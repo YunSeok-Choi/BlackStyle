@@ -63,16 +63,7 @@ class DrawViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerOb
     }
     
     @IBAction func saveDrawImage(_ sender: Any) {
-        UIGraphicsBeginImageContextWithOptions(canvasView.bounds.size, false, UIScreen.main.scale)
-        
-        canvasView.drawHierarchy(in: canvasView.bounds, afterScreenUpdates: true)
-        
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        if image != nil {
-            PHPhotoLibrary.shared().performChanges({
-                PHAssetChangeRequest.creationRequestForAsset(from: image!)
-            })
-        }
+        self.saveImage(view: canvasView)
     }
     
 }
