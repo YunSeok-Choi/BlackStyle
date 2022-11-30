@@ -23,7 +23,6 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     private let segmentButton: UISegmentedControl = {
         var segment = UISegmentedControl(items: ["Stone", "Draw", "Pencil", "Spring", "Dot", "Green"] )
-        segment.addTarget(self, action: #selector(segmentControl(_:)), for: .valueChanged)
         segment.selectedSegmentIndex = 0
         segment.translatesAutoresizingMaskIntoConstraints = false
         return segment
@@ -33,7 +32,6 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
         var button = UIButton()
         button.setTitle("저장하기", for: .normal)
         button.titleLabel?.font = UIFont(name: "Nanum GangInHanWiRo", size: 64)
-        button.addTarget(self, action: #selector(saveTransImage), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -43,6 +41,9 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
+        
+        segmentButton.addTarget(self, action: #selector(segmentControl(_:)), for: .valueChanged)
+        saveButton.addTarget(self, action: #selector(saveTransImage), for: .touchUpInside)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "camera"), style: .plain, target: self, action: #selector(albumTaped))
         

@@ -75,12 +75,7 @@
 				799D847E2931EE03004A70C2 /* Controller */,
 				799D8459292F5CDE004A70C2 /* AppDelegate.swift */,
 				799D845B292F5CDE004A70C2 /* SceneDelegate.swift */,
-				7957B11829335F9800B8CF65 /* Dezoomify1teration310.mlmodel */,
-				7957B11A29335F9E00B8CF65 /* Dot.mlmodel */,
-				7957B11C29335FA300B8CF65 /* Green.mlmodel */,
-				7957B11E29335FA700B8CF65 /* Pencil.mlmodel */,
-				7957B12029335FAD00B8CF65 /* Spring.mlmodel */,
-				7957B12229335FB200B8CF65 /* Stone.mlmodel */,
+				799EAF6629377A2C0067430F /* ML */,
 				799D8462292F5CE0004A70C2 /* Assets.xcassets */,
 				799D84782931E7CB004A70C2 /* 나눔손글씨 강인한 위로.ttf */,
 				799D8464292F5CE0004A70C2 /* LaunchScreen.storyboard */,
@@ -97,6 +92,19 @@
 				79BC984B293205300056D86D /* TransViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		799EAF6629377A2C0067430F /* ML */ = {
+			isa = PBXGroup;
+			children = (
+				7957B11829335F9800B8CF65 /* Dezoomify1teration310.mlmodel */,
+				7957B11A29335F9E00B8CF65 /* Dot.mlmodel */,
+				7957B11C29335FA300B8CF65 /* Green.mlmodel */,
+				7957B11E29335FA700B8CF65 /* Pencil.mlmodel */,
+				7957B12029335FAD00B8CF65 /* Spring.mlmodel */,
+				7957B12229335FB200B8CF65 /* Stone.mlmodel */,
+			);
+			path = ML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
