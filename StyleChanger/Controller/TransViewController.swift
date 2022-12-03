@@ -17,12 +17,13 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     private var imageView: UIImageView = {
         var image = UIImageView(image: UIImage(named: "blackpaper"))
+        image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
     private let segmentButton: UISegmentedControl = {
-        var segment = UISegmentedControl(items: ["Stone", "Draw", "Pencil", "Spring", "Dot", "Green"] )
+        var segment = UISegmentedControl(items: ["Stone", "Draw", "Pencil", "Spring", "Dot", "Green"])
         segment.selectedSegmentIndex = 0
         segment.translatesAutoresizingMaskIntoConstraints = false
         return segment
@@ -91,7 +92,7 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     private func detect(image: CIImage, name: String) {
-    
+        
         var model: VNCoreMLModel?
         
         switch name {
@@ -160,17 +161,17 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
     private func setConstraints() {
         
         let imageViewConstraints = [
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 124),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 42),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -42),
-            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1.0)
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 136),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -136),
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.2)
         ]
         
         let segmentButtonConstraints = [
             segmentButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            //            segmentButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 42),
-            //            segmentButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -42),
+            segmentButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 42),
+            segmentButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -42),
             segmentButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 75)
         ]
         
