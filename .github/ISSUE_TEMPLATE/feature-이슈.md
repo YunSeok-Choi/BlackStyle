@@ -1,5 +1,5 @@
 ---
-name: Feature 이슈 요청
+name: Feature 이슈
 about: 프로젝트의 새로운 기능 관련 이슈 요청
 title: "[Feat]"
 labels: feat
