@@ -25,7 +25,7 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }()
     
     private let segmentButton: UISegmentedControl = {
-        var segment = UISegmentedControl(items: ["Stone", "Draw", "Pencil", "Spring", "Dot", "Green"])
+        var segment = UISegmentedControl(items: ["Original", "Stone", "Draw", "Pencil", "Spring", "Dot", "Green"])
         segment.selectedSegmentIndex = 0
         segment.translatesAutoresizingMaskIntoConstraints = false
         return segment
@@ -80,16 +80,18 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            detect(image: userCIImage, name: "Stone")
+            imageView.image = userUIImage
         case 1:
-            detect(image: userCIImage, name: "Dezoomify1teration310")
+            detect(image: userCIImage, name: "Stone")
         case 2:
-            detect(image: userCIImage, name: "Pencil")
+            detect(image: userCIImage, name: "Dezoomify1teration310")
         case 3:
-            detect(image: userCIImage, name: "Spring")
+            detect(image: userCIImage, name: "Pencil")
         case 4:
-            detect(image: userCIImage, name: "Dot")
+            detect(image: userCIImage, name: "Spring")
         case 5:
+            detect(image: userCIImage, name: "Dot")
+        case 6:
             detect(image: userCIImage, name: "Green")
         default:
             break
@@ -133,7 +135,7 @@ class TransViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
         
         let orientation: CGImagePropertyOrientation = {
-            print(ratio)
+            
             switch ratio {
             case 0.75:
                 return .right
